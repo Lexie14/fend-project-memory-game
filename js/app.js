@@ -83,7 +83,13 @@
  }
 
  function match() {
-   for(var i = 0; i < openedCardsList.length; i++) {
-        openedCardsList[i].classList.add('match');
+   for(i = 0; i < openedCardsList.length; i++) {
+     openedCardsList[i].parentNode.classList.remove('open', 'show');
+     openedCardsList[i].parentNode.classList.add('match');
       }
+      clearArray(openedCardsList);
    }
+
+function clearArray(openedCardsList) {
+  openedCardsList.length = 0;
+}
