@@ -55,6 +55,8 @@
  */
 
  const card = document.querySelector('.deck');
+
+
  card.addEventListener('click', function (e) {
    if (!(e.target.className === 'deck')) {
    displaySymbol(e);
@@ -75,7 +77,13 @@
    e.target.className = 'card open show';
  }
 
-let openedCardsList = [];
+ let openedCardsList = [];
  function addToOpenCardsList(e) {
    openedCardsList.push(e.target.firstElementChild);
  }
+
+ function match() {
+   for(var i = 0; i < openedCardsList.length; i++) {
+        openedCardsList[i].classList.add('match');
+      }
+   }
