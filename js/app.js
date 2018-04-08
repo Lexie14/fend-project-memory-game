@@ -74,7 +74,7 @@
  });
 
  function displaySymbol(e) {
-   e.target.className = 'card open show';
+   e.target.className = 'card open show eventOff';
  }
 
  let openedCardsList = [];
@@ -86,10 +86,31 @@
    for(i = 0; i < openedCardsList.length; i++) {
      openedCardsList[i].parentNode.classList.remove('open', 'show');
      openedCardsList[i].parentNode.classList.add('match');
-      }
+    }
       clearArray(openedCardsList);
    }
 
 function clearArray(openedCardsList) {
   openedCardsList.length = 0;
 }
+
+function notMatch() {
+  for(i = 0; i < openedCardsList.length; i++) {
+    openedCardsList[i].parentNode.classList.remove('open', 'show', 'eventOff');
+    openedCardsList[i].parentNode.classList.add('notMatch');
+   }
+  setTimeout(function(){
+    for(i = 0; i < openedCardsList.length; i++) {
+      openedCardsList[i].parentNode.classList.remove('notMatch');
+    }
+    clearArray(openedCardsList);
+  }, 900);
+}
+
+let numberOfMoves = 0;
+const moves = document.querySelector('.moves');
+
+ function moveCounter() {
+   numberOfMoves++;
+   moves.innerText = numberOfMoves;
+ }

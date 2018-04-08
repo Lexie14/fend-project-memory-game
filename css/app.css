@@ -81,6 +81,18 @@ h1 {
     font-size: 33px;
 }
 
+.deck .card.eventOff {
+  pointer-events: none;
+}
+
+.deck .card.notMatch {
+    cursor: default;
+    background: #ff4d4d;
+    font-size: 33px;
+    transform: none;
+    transition: background-color 0.3s;
+    animation: scale 0.7s linear;
+}
 /*
  * Styles for the Score Panel
  */
