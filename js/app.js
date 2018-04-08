@@ -57,6 +57,7 @@
  const card = document.querySelector('.deck');
 
 
+
  card.addEventListener('click', function (e) {
    if (!(e.target.className === 'deck')) {
    displaySymbol(e);
@@ -68,7 +69,11 @@
          notMatch();
      }
      moveCounter();
-     allMatched();
+     starsRating();
+     if (matchedCardsList.length === 16) {
+       starsFinal = stars.innerHTML;
+       displayModal();
+     }
    }
  }
  });
@@ -87,7 +92,7 @@
      openedCardsList[i].parentNode.classList.remove('open', 'show');
      openedCardsList[i].parentNode.classList.add('match');
     }
-      clearArray(openedCardsList);
+    clearArray(openedCardsList);
    }
 
 function clearArray(openedCardsList) {
@@ -113,4 +118,27 @@ const moves = document.querySelector('.moves');
  function moveCounter() {
    numberOfMoves++;
    moves.innerText = numberOfMoves;
+ }
+
+const stars = document.querySelector('.stars');
+const star = '<li><i class="fa fa-star"></i></li>';
+function starsRating() {
+  if (numberOfMoves >= 0 && numberOfMoves < 10) {
+		stars.innerHTML = star.repeat(3);
+	}
+	else if (numberOfMoves >= 10 && numberOfMoves < 16) {
+		stars.innerHTML = star.repeat(2);
+	}
+	else {
+		stars.innerHTML = star.repeat(1);
+	}
+}
+
+let matchedCardsList = document.getElementsByClassName('match');
+ function displayModal() {
+   modal.style.display = 'block';
+   document.getElementById('stars').innerHTML = starsFinal;
+   document.getElementById('stars').innerHTML = 'Star Rating: ' + starsFinal;
+   document.getElementById('moves').innerHTML = numberOfMoves + ' moves';
+
  }

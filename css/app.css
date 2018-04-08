@@ -119,3 +119,11 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+#modal {
+  display: none;
+}
+
+#stars li {
+    display: inline-block;
+}
