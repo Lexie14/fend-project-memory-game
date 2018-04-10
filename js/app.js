@@ -138,7 +138,6 @@ let matchedCardsList = document.getElementsByClassName('match');
  function displayModal() {
    modal.style.display = 'block';
    document.getElementById('stars').innerHTML = starsFinal;
-   document.getElementById('stars').innerHTML = 'Star Rating: ' + starsFinal;
-   document.getElementById('moves').innerHTML = numberOfMoves + ' moves';
-
+   document.getElementById('stars').innerHTML = 'Stars Rating: ' + starsFinal;
+   document.getElementById('moves').innerHTML = 'Moves Count: ' + numberOfMoves;
  }

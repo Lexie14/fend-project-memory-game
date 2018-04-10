@@ -122,6 +122,30 @@ h1 {
 
 #modal {
   display: none;
+  position: fixed;
+  background: #ffffff url('../img/geometry2.png');
+  width: 75%;
+  top: 30%;
+  bottom: 10%;
+  padding: 3% 0;
+  vertical-align: baseline;
+  text-align: center;
+  font-size: 140%;
+  font-weight: bold;
+  border-radius: 10px;
+  border: solid 1px #EBECED;
+  box-shadow: 0 0 35px 0 #737373;
+}
+
+.modal-button {
+  background-color: #2E3D49;
+  border: none;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 15px;
+  font-size: 80%;
+  color: white;
+  cursor: pointer;
 }
 
 #stars li {
