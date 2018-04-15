@@ -151,3 +151,11 @@ h1 {
 #stars li {
     display: inline-block;
 }
+
+.moves {
+margin-left: 1em;
+}
+
+.timeName {
+  margin-left: 1em;
+}

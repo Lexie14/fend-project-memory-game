@@ -55,11 +55,16 @@
  */
 
  const card = document.querySelector('.deck');
-
+ let timeInterval;
+ resetTimer(timeInterval);
 
 
  card.addEventListener('click', function (e) {
-   if (!(e.target.className === 'deck')) {
+   if (!(e.target.className === 'deck') && (openedCardsList.length < 2)) {
+     if (min === 0 && sec === 0) {
+       timeInterval = setInterval(timeCounter, 1000);
+       timeCounter();
+}
    displaySymbol(e);
    addToOpenCardsList(e);
    if (openedCardsList.length === 2) {
@@ -72,7 +77,9 @@
      starsRating();
      if (matchedCardsList.length === 16) {
        starsFinal = stars.innerHTML;
+       timeFinal = timer.innerHTML;
        displayModal();
+       resetTimer(timeInterval);
      }
    }
  }
@@ -138,6 +145,36 @@ let matchedCardsList = document.getElementsByClassName('match');
  function displayModal() {
    modal.style.display = 'block';
    document.getElementById('stars').innerHTML = starsFinal;
-   document.getElementById('stars').innerHTML = 'Stars Rating: ' + starsFinal;
-   document.getElementById('moves').innerHTML = 'Moves Count: ' + numberOfMoves;
+   document.getElementById('stars').innerHTML = 'Stars rating: ' + starsFinal;
+   document.getElementById('moves').innerHTML = 'Moves count: ' + numberOfMoves;
+   document.getElementById('timer').innerHTML = 'Time spent: ' + timeFinal;
  }
+
+let min = 0;
+let sec = 0;
+const timer = document.querySelector('.timer');
+function timeCounter() {
+  sec+=1;
+  if(sec === 60) {
+    min+=1;
+    sec=0;
+  }
+  if(sec < 10) {
+    if (min < 10) {
+        timer.innerHTML= ' 0'+min +':0'+sec;
+    } else {
+      timer.innerHTML= ' '+min +':0'+sec;
+    }
+  }
+    else {
+      if (min < 10) {
+          timer.innerHTML= ' 0'+min +':'+sec;
+      } else {
+        timer.innerHTML= ' '+min +':'+sec;
+      }
+  }
+}
+
+function resetTimer() {
+  clearInterval(timeInterval);
+}
