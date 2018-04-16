@@ -18,6 +18,28 @@
  'fa fa-paper-plane-o',
  'fa fa-cube'];
 
+const stars = document.querySelector('.stars');
+const starEmpty = '<li><i class="fa fa-star-o"></i></li>';
+
+function startGame() {
+  stars.innerHTML = starEmpty.repeat(3);
+  moves.innerText = '';
+  numberOfMoves = 0;
+  timer.innerText = '';
+  resetTimer();
+  min = 0;
+  sec = 0;
+  clearArray(matchedCardsList);
+  let shuffledIconList = shuffle(iconList);
+  const cardsArray = document.querySelectorAll('.deck li');
+
+  cardsArray.forEach(function(card) {
+    for(let i = 0; i < shuffledIconList.length; i++) {
+    cardsArray[i].firstElementChild.className = shuffledIconList[i];
+  }
+  card.className = 'card';
+  });
+}
  /*
   * Display the cards on the page
    *   - shuffle the list of cards using the provided "shuffle" method below
@@ -41,6 +63,7 @@
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+
 
 
 /*
@@ -78,8 +101,10 @@
      if (matchedCardsList.length === 16) {
        starsFinal = stars.innerHTML;
        timeFinal = timer.innerHTML;
-       displayModal();
-       resetTimer(timeInterval);
+       resetTimer();
+       setTimeout(function() {
+         displayModal();
+       }, 500);
      }
    }
  }
@@ -102,8 +127,8 @@
     clearArray(openedCardsList);
    }
 
-function clearArray(openedCardsList) {
-  openedCardsList.length = 0;
+function clearArray(cards) {
+  cards.length = 0;
 }
 
 function notMatch() {
@@ -127,7 +152,6 @@ const moves = document.querySelector('.moves');
    moves.innerText = numberOfMoves;
  }
 
-const stars = document.querySelector('.stars');
 const star = '<li><i class="fa fa-star"></i></li>';
 function starsRating() {
   if (numberOfMoves >= 0 && numberOfMoves < 10) {
@@ -178,3 +202,26 @@ function timeCounter() {
 function resetTimer() {
   clearInterval(timeInterval);
 }
+
+const resume = document.querySelector('.resume');
+function hideModal() {
+  modal.style.display = 'none';
+}
+resume.addEventListener('click', function() {
+  hideModal();
+  resetTimer();
+});
+
+const start = document.querySelector('.start');
+start.addEventListener('click', function() {
+  hideModal();
+  startGame();
+});
+
+document.ready = startGame();
+
+const restart = document.querySelector('.restart');
+restart.addEventListener('click', function() {
+  hideModal();
+  startGame();
+});
