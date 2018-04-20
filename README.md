@@ -1,20 +1,37 @@
-# Memory Game Project
+# Memory Game
+This is a simple game based on your ability to memorize opened cards and to make them all match in as minimum moves as it is possible.
 
 ## Table of Contents
 
+* [Start](#start)
 * [Instructions](#instructions)
+* [Compatibility](#contributing)
+* [Responsiveness](#contributing)
+* [Dependencies](#contributing)
 * [Contributing](#contributing)
+
+## Start
+In order to play the game, you should clone this repository to your local one and open the index.html file in your browser.
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+The main steps of the game are:
+* click on any card - this will start the time counter;
+* click the second card:
+  * if it matches the first one - then they will both stay opened;
+  * if not - the will be both closed.
+* each two opened cards will be counted as one move;
+* when all the 16 cards are matched - the game will be finished:
+  * the time counter will be stopped and you will see the modal window demonstrating the time spent, stars rating and number of moves made.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Compatibility
+This game works in Chrome and Firefox, but not in the Internet Explorer.
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+## Responsiveness
+The design of the game is highly responsive, hence the game's web page will be well rendered across all the most popular devices.
+
+## Dependencies
+The project was built using HTML5, CSS3 and JavaScript as well as https://www.w3schools.com/js/default.asp and https://developer.mozilla.org/en-US/docs/Learn/JavaScript
 
 ## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+All the contributions are very welcomed - just make a push request.
