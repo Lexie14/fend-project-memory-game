@@ -13,6 +13,9 @@ This is a simple game based on your ability to memorize opened cards and to make
 ## Start
 In order to play the game, you should clone this repository to your local one and open the index.html file in your browser.
 
+**Play the game** here https://lexie14.github.io/fend-project-memory-game/
+
+
 ## Instructions
 
 The main steps of the game are:
@@ -38,4 +41,4 @@ All the contributions are very welcomed - just make a push request.
 
 
 
-**Play the game** here https://lexie14.github.io/fend-project-memory-game/
+
