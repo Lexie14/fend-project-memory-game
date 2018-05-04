@@ -36,4 +36,6 @@ The project was built using HTML5, CSS3 and JavaScript as well as https://www.w3
 ## Contributing
 All the contributions are very welcomed - just make a push request.
 
+
+
 **Play the game** here https://lexie14.github.io/fend-project-memory-game/
