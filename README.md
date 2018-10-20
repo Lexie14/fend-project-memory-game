@@ -36,8 +36,7 @@ The design of the game is highly responsive, hence the game's web page will be w
 ## Dependencies
 The project was built using HTML5, CSS3 and JavaScript as well as https://www.w3schools.com/js/default.asp and https://developer.mozilla.org/en-US/docs/Learn/JavaScript
 
-## Contributing
-All the contributions are very welcomed - just make a push request.
+![Screenshot](memory-game.jpg)
 
 
 
