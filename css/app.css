@@ -137,6 +137,7 @@ h1 {
 	position: fixed;
 	background: #ffffff url('../img/geometry2.png');
 	width: 75%;
+	max-width: 800px;
 	height: 400px;
 	top: 200px;
 	bottom: 10%;
