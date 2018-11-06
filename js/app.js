@@ -30,7 +30,6 @@ let numberOfMoves = 0;
 const moves = document.querySelector('.moves');
 const star = '<li><i class="fa fa-star"></i></li>';
 let matchedCardsList = document.getElementsByClassName('match');
-let min = 0;
 let sec = 0;
 const timer = document.querySelector('.timer');
 const resume = document.querySelector('.resume');
@@ -47,7 +46,6 @@ function startGame() {
     numberOfMoves = 0;
     timer.innerText = '';
     resetTimer();
-    min = 0;
     sec = 0;
     clearArray(openedCardsList);
     clearArray(matchedCardsList);
@@ -81,7 +79,7 @@ card.addEventListener('click', function(e) {
     // Listen to events only when the card is clicked
     if (!(e.target.className === 'deck') && (openedCardsList.length < 2)) {
         // Set timeCount function
-        if (min === 0 && sec === 0) {
+        if (sec === 0) {
             timeInterval = setInterval(timeCounter, 1000);
             timeCounter();
         }
@@ -173,23 +171,9 @@ function displayModal() {
 
 function timeCounter() {
     sec += 1;
-    if (sec === 60) {
-        min += 1;
-        sec = 0;
-    }
-    if (sec < 10) {
-        if (min < 10) {
-            timer.innerHTML = ' 0' + min + ':0' + sec;
-        } else {
-            timer.innerHTML = ' ' + min + ':0' + sec;
-        }
-    } else {
-        if (min < 10) {
-            timer.innerHTML = ' 0' + min + ':' + sec;
-        } else {
-            timer.innerHTML = ' ' + min + ':' + sec;
-        }
-    }
+    const date = new Date(null);
+    date.setSeconds(sec);
+    timer.innerHTML = date.toISOString().substr(14, 5);
 }
 
 function resetTimer() {
